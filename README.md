@@ -79,8 +79,8 @@ This is an electric moto battery swap assistant system. helps monitoring live lo
     // 1
     {
     "agent": 2,
-    "battery_in": 1,
-    "battery_out": 2,
+    "battery_in": 4,
+    "battery_out": 3,
     "driver": 1,
     "station": 2,
     "vehicle": 1
