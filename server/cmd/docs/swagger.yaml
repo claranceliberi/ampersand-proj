@@ -1,0 +1,309 @@
+basePath: /api/v1
+definitions:
+  agents.AddAgentRequestBody:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  batteries.AddBatteryRequestBody:
+    properties:
+      identifier:
+        type: string
+      last_seen_online:
+        type: string
+      manufacture_date:
+        type: string
+      model_name:
+        type: string
+    type: object
+  battery_telematics.AddBatteryTelematicsRequestBodyEntity:
+    properties:
+      battery_id:
+        type: number
+      battery_soc:
+        type: number
+      charging:
+        type: boolean
+      charging_rate:
+        type: number
+      latitude:
+        type: string
+      longitude:
+        type: string
+    type: object
+  drivers.AddDriverRequestBody:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  stations.AddStationsRequestBody:
+    properties:
+      description:
+        type: string
+      location:
+        type: string
+    type: object
+  swaps.AddSwapRequestBody:
+    properties:
+      agent:
+        type: number
+      battery_in:
+        type: number
+      battery_out:
+        type: number
+      driver:
+        type: number
+      station:
+        type: number
+      vehicle:
+        type: number
+    type: object
+  vehicles.AddVehicleRequestBody:
+    properties:
+      description:
+        type: string
+      identifier:
+        type: string
+      manufacture_date:
+        type: string
+      model:
+        type: string
+    type: object
+info:
+  contact:
+    email: ntwaricliberi@gmail.com
+    name: Clarance Liberi Ntwari
+    url: https://twitter.com/claranceliberi
+  description: This is the API for Ampersand, a car battery swapping service.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Ampersand API
+  version: "1.0"
+paths:
+  /agents:
+    get:
+      consumes:
+      - application/json
+      description: Get all agents
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all agents
+      tags:
+      - agents
+    post:
+      consumes:
+      - application/json
+      description: Add a new agent
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/agents.AddAgentRequestBody'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a new agent
+      tags:
+      - agents
+  /batteries:
+    get:
+      consumes:
+      - application/json
+      description: Get all batteries
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all batteries
+      tags:
+      - batteries
+    post:
+      consumes:
+      - application/json
+      description: Add a new battery
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/batteries.AddBatteryRequestBody'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a new battery
+      tags:
+      - batteries
+  /battery_telematics:
+    get:
+      consumes:
+      - application/json
+      description: Get all batteries telematics
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all batteries telematics
+      tags:
+      - battery_telematics
+    post:
+      consumes:
+      - application/json
+      description: Add a battery telematics
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/battery_telematics.AddBatteryTelematicsRequestBodyEntity'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a battery telematics
+      tags:
+      - battery_telematics
+  /drivers:
+    get:
+      consumes:
+      - application/json
+      description: Get all drivers
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all drivers
+      tags:
+      - drivers
+    post:
+      consumes:
+      - application/json
+      description: Add a new driver
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/drivers.AddDriverRequestBody'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a new driver
+      tags:
+      - drivers
+  /stations:
+    get:
+      consumes:
+      - application/json
+      description: Get all stations
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all stations
+      tags:
+      - stations
+    post:
+      consumes:
+      - application/json
+      description: Add a station
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/stations.AddStationsRequestBody'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a station
+      tags:
+      - stations
+  /swaps:
+    get:
+      consumes:
+      - application/json
+      description: Get all swaps
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all swaps
+      tags:
+      - swaps
+    post:
+      consumes:
+      - application/json
+      description: Add a swap
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/swaps.AddSwapRequestBody'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a swap
+      tags:
+      - swaps
+  /swaps/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Swap
+      parameters:
+      - description: ID of the swap
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: Get Swap
+      tags:
+      - swaps
+  /vehicles:
+    get:
+      consumes:
+      - application/json
+      description: Get all vehicles
+      produces:
+      - application/json
+      responses: {}
+      summary: Get all vehicles
+      tags:
+      - vehicles
+    post:
+      consumes:
+      - application/json
+      description: Add a new vehicle
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/vehicles.AddVehicleRequestBody'
+      produces:
+      - application/json
+      responses: {}
+      summary: Add a new vehicle
+      tags:
+      - vehicles
+swagger: "2.0"
